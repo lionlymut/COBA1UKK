@@ -85,10 +85,6 @@ class SiswaResource extends Resource
                 ->columnSpanFull()
                 ->nullable(),
 
-
-
-
- 
             Forms\Components\Toggle::make('status_pkl')
             ->label('Status PKL')
             ->reactive()

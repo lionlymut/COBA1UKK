@@ -10,12 +10,14 @@
                     </a>
                 </div>
 
-                <!-- //comment -->
-
+               
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('DATA SISWA PKL') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('industri.index') }}" :active="request()->routeIs('industri.index')">
+                        {{ __('DAFTAR INDUSTRI') }}
                     </x-nav-link>
                    
                 </div>

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Siswa\InputPkl;
 use App\Livewire\Siswa\InputPklForm;
+use App\Livewire\Siswa\DaftarIndustri;
+use App\Livewire\Siswa\InputIndustriForm;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,3 +23,5 @@ Route::middleware([
 // Route::get('/input-pkl', InputPkl::class)->name('input.pkl');
 Route::get('/input/pkl-create',InputPklForm::class)->name('pkl.create');
 Route::get('/input',InputPkl::class)->name('input.index');
+Route::get('/industri', DaftarIndustri::class)->name('industri.index');
+Route::get('/industri/create', InputIndustriForm::class)->name('industri.create');
