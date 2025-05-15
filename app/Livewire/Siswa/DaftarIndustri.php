@@ -1,28 +1,38 @@
 <?php
 
 
+
+
 namespace App\Livewire\Siswa;
+
+
 
 
 use Livewire\Component;
 use App\Models\Industri;
 
 
+
+
 class DaftarIndustri extends Component
 {
-     public $search = '';
+    public $industris;
 
-   public function render()
-{
-    $industris = Industri::query()
-        ->where('nama', 'like', '%' . $this->search . '%')
-        ->orWhere('bidang_usaha', 'like', '%' . $this->search . '%')
-        ->orderBy('nama')
-        ->get();
 
-    return view('livewire.siswa.daftar-industri', [
-        'industris' => $industris,
-    ])->layout('layouts.app');
 
+
+    public function mount()
+    {
+        // Ambil semua data dari tabel industris
+        $this->industris = Industri::all();
+    }
+
+
+
+
+    public function render()
+    {
+        return view('livewire.siswa.daftar-industri')->layout('layouts.app');
     }
 }
+
