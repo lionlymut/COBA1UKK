@@ -163,12 +163,8 @@ public static function table(Table $table): Table
                 ->label('Foto')
                 ->disk('public')
                 ->circular()
+                ->visibility('public')
                 ->height(40),
-
-
-
-
-
 
                 Tables\Columns\TextColumn::make('status_pkl')
                 ->label('Status PKL')
