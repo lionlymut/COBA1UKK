@@ -19,8 +19,6 @@
                     
                     {{-- Tambahkan komponen Livewire atau form input PKL dan Industri di sini --}}
                     @livewire('siswa.input-pkl')
-
-                  
                 </div>
             </div>
         @endif

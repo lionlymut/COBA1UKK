@@ -63,6 +63,7 @@ class InputPklForm extends Component
 
             session()->flash('message', 'Data PKL berhasil ditambahkan.');
             return redirect()->route('dashboard');
+            
         } catch (\Exception $e) {
             DB::rollBack();
             session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());

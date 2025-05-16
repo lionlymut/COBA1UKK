@@ -83,7 +83,7 @@ class SiswaResource extends Resource
                 ->preserveFilenames()
                 ->visibility('public')
                 ->columnSpanFull()
-                ->nullable(),
+                ->required(),
 
             Forms\Components\Toggle::make('status_pkl')
             ->label('Status PKL')

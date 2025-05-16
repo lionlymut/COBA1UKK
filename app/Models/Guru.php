@@ -9,9 +9,9 @@ class Guru extends Model
 {
     protected $fillable = ['nama', 'nip', 'gender', 'alamat', 'kontak', 'email'];
 
-    public function siswa()
-{
-    return $this->belongsTo(Siswa::class);
-}
+public function pkl()
+    {
+        return $this->hasMany(Pkl::class);
+    }
 
 }
