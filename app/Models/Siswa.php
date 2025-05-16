@@ -18,6 +18,10 @@ class Siswa extends Authenticatable
     {
         return $this->hasOne(Pkl::class, 'siswa_id', 'id');  // Sesuaikan dengan nama kolom yang ada
     }
+    public function guru()
+{
+    return $this->hasOne(Guru::class);
+}
  // Accessor status_pkl
  public function getStatusPklAttribute()
  {
