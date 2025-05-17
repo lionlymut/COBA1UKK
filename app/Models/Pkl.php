@@ -21,18 +21,13 @@ public function siswa()
     return $this->belongsTo(Siswa::class);
 }
 
-
 public function industri()
 {
     return $this->belongsTo(Industri::class);
 }
-
-
 protected static function booted()
 {
    
 }
-
-
 }
 

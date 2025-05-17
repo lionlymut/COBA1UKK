@@ -1,22 +1,30 @@
 <?php
 
-
 namespace App\Livewire\Siswa;
-// aku tambahin siswa karena disamping folder ada siswanya
-
 
 use Livewire\Component;
 use App\Models\Pkl;
 
-
 class InputPkl extends Component
 {
+    public $search = '';
+
     public function render()
     {
-        $pkls = pkl::all();
-        return view('livewire.siswa.input-pkl', compact('pkls'))->layout('layouts.app');
-        // return view('livewire.siswa.input-pkl', [
-        //     'pkls' => Pkl::all()
-        // ])->layout('layouts.app');
+        $pkls = Pkl::with(['siswa', 'guru', 'industri'])
+            ->when($this->search, function ($query) {
+                $query->where(function ($q) {
+                    $q->whereHas('siswa', fn($s) =>
+                        $s->where('nama', 'like', '%' . $this->search . '%'))
+                    ->orWhereHas('industri', fn($i) =>
+                        $i->where('nama', 'like', '%' . $this->search . '%'))
+                    ->orWhereHas('guru', fn($g) =>
+                        $g->where('nama', 'like', '%' . $this->search . '%'));
+                });
+            })
+            ->get();
+
+        return view('livewire.siswa.input-pkl', compact('pkls'))
+            ->layout('layouts.app');
     }
 }
