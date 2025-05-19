@@ -1,4 +1,5 @@
-<nav class="w-full max-w-4xl mx-auto bg-white border border-gray-300 rounded-xl shadow-md my-4">
+<nav class="w-full max-w-4xl mx-auto bg-white border border-gray-300 rounded-xl shadow-md mb-4">
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">

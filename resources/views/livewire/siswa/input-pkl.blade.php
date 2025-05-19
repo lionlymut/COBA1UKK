@@ -5,11 +5,12 @@
     <div class="container mx-auto p-6">
         <!-- Bagian salam dan info user -->
        
+            <h2 class="text-2xl font-semibold mb-4 text-center">Daftar Siswa PKL</h2>
             <h3 class="text-lg font-bold mb-4">Halo, {{ $user->name }}</h3>
             <p>Silakan input data PKL dan Industri:</p>
             {{-- @livewire('siswa.input-pkl') atau lainnya --}}
         
-        <h2 class="text-2xl font-semibold mb-4">Daftar Siswa PKL</h2>
+        
 
         <!-- Tombol dan Search di satu baris -->
         <div class="flex justify-between items-center mb-4">
@@ -18,7 +19,7 @@
             </a>
 
             <div class="mb-4">
-                <input type="text" wire:model.live.300ms="search" placeholder="Cari siswa / industri / guru..." class="border rounded p-2 w-full">
+                <input type="text" wire:model.live.300ms="search" placeholder="Search..." class="border rounded p-2 w-full">
             </div>
         </div>
 

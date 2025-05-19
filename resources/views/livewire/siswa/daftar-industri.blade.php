@@ -1,6 +1,6 @@
 <div class="bg-white shadow-lg rounded-xl p-6 border border-gray-300 max-w-4xl mx-auto mt-8">
     <div class="container mx-auto p-6">
-        <h2 class="text-2xl font-semibold mb-4">Daftar Industri</h2>
+        <h2 class="text-2xl font-semibold mb-4 text-center">Daftar Industri</h2>
 
         <!-- Card container -->
         <div class="bg-white shadow-md rounded-xl p-6">

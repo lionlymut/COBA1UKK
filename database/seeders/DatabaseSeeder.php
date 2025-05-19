@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GuruSeeder::class,
             SiswaSeeder::class,
+            AdminUserSeeder::class,
         ]);
 
         // Buat 1 user dummy manual
