@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <div style="bg-[url('/uploads/bg_landing.png')] bg-cover bg-center text-white flex flex-col items-center justify-start min-h-screen p-6 lg:p-8 pt-16">
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />

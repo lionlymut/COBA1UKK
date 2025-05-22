@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('storage/fotosiswa/logo_sija.png') }}" alt="Logo SIJA" class="block h-9 w-auto" />
+                        <img src="{{ asset('storage/uploads/logo_sija.png') }}" alt="Logo SIJA" class="block h-9 w-auto" />
                     </a>
                 </div>
 
