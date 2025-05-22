@@ -7,7 +7,7 @@
   <!-- Tailwind CSS CDN (untuk demo cepat) -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[url('/storage/bg_landing.png')] bg-cover bg-center text-white flex flex-col items-center justify-start min-h-screen p-6 lg:p-8 pt-16">
+<body class="bg-[url('/uploads/bg_landing.png')] bg-cover bg-center text-white flex flex-col items-center justify-start min-h-screen p-6 lg:p-8 pt-16">
 
   <!-- Header fixed di atas -->
   <div class="mx-auto max-w-screen-xl w-full flex justify-end px-6 py-4">
@@ -70,9 +70,9 @@
     return {
       current: 0,
       images: [
-        '/storage/foto2.jpg',
-        '/storage/foto1.jpg',
-        '/storage/foto3.jpg',
+        '/uploads/foto2.jpg',
+        '/uploads/foto1.jpg',
+        '/uploads/foto3.jpg',
       ],
       next() {
         this.current = (this.current + 1) % this.images.length;
