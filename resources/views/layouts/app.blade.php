@@ -8,19 +8,25 @@
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body class="font-sans antialiased bg-blue-600">
-    <div class="min-h-screen">
-    @livewire('navigation-menu')
+<body class="font-sans antialiased h-screen overflow-hidden">
+
+    <div class="flex flex-col h-full">
+        <!-- Navigation -->
+        <div class="shrink-0">
+            @livewire('navigation-menu')
+        </div>
+
+        <!-- Optional Header -->
         @if (isset($header))
-            <header class="bg-blue-600">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="shrink-0">
+                <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
         @endif
 
         <!-- Page Content -->
-        <main>
+        <main class="flex-grow overflow-hidden">
             {{ $slot }}
         </main>
     </div>

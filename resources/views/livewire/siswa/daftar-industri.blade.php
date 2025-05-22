@@ -1,51 +1,50 @@
-<div class="bg-white shadow-lg rounded-xl p-6 border border-gray-300 max-w-4xl mx-auto mt-8">
-    <div class="container mx-auto p-6">
-        <h2 class="text-2xl font-semibold mb-4 text-center">Daftar Industri</h2>
+<div class="max-w-4xl mx-auto mt-8 bg-white border border-gray-300 rounded-xl shadow-lg p-6">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Daftar Industri</h2>
 
-        <!-- Card container -->
-        <div class="bg-white shadow-md rounded-xl p-6">
+    <div class="bg-white shadow-md rounded-xl p-6">
+        <!-- Tombol & Search -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+            <a href="{{ route('industri.create') }}" 
+               class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow transition">
+                Tambah Industri
+            </a>
 
-            <!-- Tombol dan Search di satu baris -->
-            <div class="flex justify-between items-center mb-4 gap-4">
-                <a href="{{ route('industri.create') }}" class="bg-blue-500 text-white p-2 rounded shadow">
-                    Tambah Industri
-                </a>
-                 <div class="mb-4">
-                    <input type="text" wire:model.live.300ms="search" placeholder="Search.." class="border rounded p-2 w-full">
-                </div>
+            <input type="text" 
+                   wire:model.live.300ms="search" 
+                   placeholder="Search..." 
+                   class="border border-gray-300 rounded px-4 py-2 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+        </div>
 
-                
-            </div>
-
-            <!-- Tabel daftar Industri -->
-            <div class="overflow-auto">
-                <table class="w-full text-left table-auto border-separate border-spacing-y-2">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="p-2">Nama Industri</th>
-                            <th class="p-2">Bidang Usaha</th>
-                            <th class="p-2">Alamat</th>
-                            <th class="p-2">Kontak</th>
-                            <th class="p-2">Email</th>
+        <!-- Tabel Industri -->
+        <div class="overflow-x-auto">
+            <table class="w-full table-auto border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 text-gray-700">
+                        <th class="p-3 text-left font-medium border-b border-gray-300">Nama Industri</th>
+                        <th class="p-3 text-left font-medium border-b border-gray-300">Bidang Usaha</th>
+                        <th class="p-3 text-left font-medium border-b border-gray-300">Alamat</th>
+                        <th class="p-3 text-left font-medium border-b border-gray-300">Kontak</th>
+                        <th class="p-3 text-left font-medium border-b border-gray-300">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($industris as $industri)
+                        <tr class="border-b last:border-b-0 hover:bg-gray-50 transition">
+                            <td class="p-3">{{ $industri->nama }}</td>
+                            <td class="p-3">{{ $industri->bidang_usaha }}</td>
+                            <td class="p-3">{{ $industri->alamat }}</td>
+                            <td class="p-3">{{ $industri->kontak }}</td>
+                            <td class="p-3">{{ $industri->email }}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($industris as $industri)
-                            <tr class="bg-white hover:bg-gray-50 shadow-sm rounded">
-                                <td class="p-2">{{ $industri->nama }}</td>
-                                <td class="p-2">{{ $industri->bidang_usaha }}</td>
-                                <td class="p-2">{{ $industri->alamat }}</td>
-                                <td class="p-2">{{ $industri->kontak }}</td>
-                                <td class="p-2">{{ $industri->email }}</td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="5" class="text-center p-4 text-gray-500">Tidak ada data industri ditemukan.</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center p-6 text-gray-500">
+                                Tidak ada data industri ditemukan.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
