@@ -27,7 +27,7 @@
                         icon: 'warning',
                         confirmButtonText: 'OK',
                         didClose: () => {
-                            window.location.href = "{{ route('dashboard') }}";
+                            window.location.href = "{{ route('input.index') }}";
                         }
                     });
                 });
