@@ -79,11 +79,10 @@ class SiswaResource extends Resource
                 ->label('Foto')
                 ->image()
                 ->disk('public') // ini wajib!
-                ->directory('fotosiswa')
+                ->directory('uploads')
                 ->preserveFilenames()
                 ->visibility('public')
-                ->columnSpanFull()
-                ->required(),
+                ->columnSpanFull(),
 
             Forms\Components\Toggle::make('status_pkl')
             ->label('Status PKL')

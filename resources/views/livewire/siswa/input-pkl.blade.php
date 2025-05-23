@@ -1,12 +1,8 @@
-@php
-    $user = auth()->user();
-@endphp
 
 <div class="max-w-4xl mx-auto mt-8 bg-white border border-gray-300 rounded-xl shadow-lg p-6">
     <!-- Header salam dan info user -->
     <div class="mb-6 text-center">
         <h2 class="text-2xl font-semibold mb-2">Daftar Siswa PKL</h2>
-        <h3 class="text-lg font-bold mb-1">Halo, {{ $user->name }}</h3>
         <p class="text-gray-600">Silakan input data PKL dan Industri:</p>
         {{-- @livewire('siswa.input-pkl') atau lainnya --}}
     </div>
