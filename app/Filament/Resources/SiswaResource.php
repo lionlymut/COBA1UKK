@@ -1,12 +1,6 @@
 <?php
 
-
-
-
 namespace App\Filament\Resources;
-
-
-
 
 use App\Filament\Resources\SiswaResource\Pages;
 use App\Filament\Resources\SiswaResource\RelationManagers;
@@ -21,15 +15,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\DB;
 
 
-
-
 class SiswaResource extends Resource
 {
     protected static ?string $model = Siswa::class;
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
-
-
 
     public static function form(Form $form): Form
 {

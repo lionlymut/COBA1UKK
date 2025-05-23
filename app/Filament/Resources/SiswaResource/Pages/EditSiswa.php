@@ -13,12 +13,13 @@ class EditSiswa extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
+            Actions\DeleteAction::make()
+                ->visible(fn () => $this->record->status_pkl === false),
         ];
     }
-      protected function getRedirectUrl(): string
-{
-    return $this->getResource()::getUrl('index');
-}
 
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

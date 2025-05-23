@@ -1,21 +1,18 @@
 <?php
 
-
 namespace App\Actions\Fortify;
-
 
 use App\Models\User;
 use App\Models\Siswa;
+use App\Models\Guru;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
-
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
-
 
     /**
      * Create a newly registered user.
@@ -25,30 +22,30 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        // Validasi input
+        // Validasi input dasar
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],  // Pastikan email unik di tabel users
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => $this->passwordRules(),
         ])->validate();
 
+        // Validasi apakah email terdaftar di tabel siswa atau guru
+        $email = $input['email'];
+        $terdaftarSebagaiSiswa = Siswa::where('email', $email)->exists();
+        $terdaftarSebagaiGuru = Guru::where('email', $email)->exists();
 
-        // Validasi apakah email terdaftar di tabel siswa
-        if (!Siswa::where('email', $input['email'])->exists()) {
+        if (!$terdaftarSebagaiSiswa && !$terdaftarSebagaiGuru) {
             throw ValidationException::withMessages([
-                'email' => 'Email ini tidak terdaftar sebagai siswa.',
+                'email' => 'Email ini tidak terdaftar.',
             ]);
         }
 
-
-        // Membuat user baru dengan role null
+        // Buat user baru (role null dulu, nanti diatur oleh admin)
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role' => null,  // Role masih null, admin nanti yang akan set role
+            'role' => null,
         ]);
     }
 }
-
-

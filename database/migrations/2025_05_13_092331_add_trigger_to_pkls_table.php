@@ -1,30 +1,39 @@
 <?php
 
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-
 return new class extends Migration {
-    public function up(): void {
-        //Triger status siswa
+    public function up(): void
+    {
+        // Trigger setelah insert ke tabel pkls
         DB::unprepared('
-            CREATE TRIGGER update_status_pkl_after_insert
+            CREATE TRIGGER after_pkl_insert
             AFTER INSERT ON pkls
             FOR EACH ROW
             BEGIN
                 UPDATE siswas
-                SET status_pkl = true
+                SET status_lapor_pkl = TRUE
                 WHERE id = NEW.siswa_id;
             END;
         ');
-        /// triger duplikat data
+
+        // Trigger setelah delete dari tabel pkls
+        DB::unprepared('
+            CREATE TRIGGER after_pkl_delete
+            AFTER DELETE ON pkls
+            FOR EACH ROW
+            BEGIN
+                UPDATE siswas
+                SET status_lapor_pkl = FALSE
+                WHERE id = OLD.siswa_id;
+            END;
+        ');
     }
 
-
-    public function down(): void {
-        DB::unprepared('DROP TRIGGER IF EXISTS update_status_pkl_after_insert');
+    public function down(): void
+    {
+        DB::unprepared('DROP TRIGGER IF EXISTS after_pkl_insert');
+        DB::unprepared('DROP TRIGGER IF EXISTS after_pkl_delete');
     }
 };
-
-

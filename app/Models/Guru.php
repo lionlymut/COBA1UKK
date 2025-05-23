@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guru extends Model
 {
-    protected $fillable = ['nama', 'nip', 'gender','keterangan', 'alamat', 'kontak', 'email'];
+    protected $fillable = ['nama', 'nip', 'gender', 'alamat', 'kontak', 'email'];
 
 public function pkl()
     {
