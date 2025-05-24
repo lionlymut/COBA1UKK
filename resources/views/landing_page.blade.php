@@ -62,6 +62,7 @@
     <img src="/uploads/galery1.jpg" class="rounded shadow-lg w-full h-48 object-cover" alt="Foto 1">
     <img src="/uploads/galeri2.jpg" class="rounded shadow-lg w-full h-48 object-cover" alt="Foto 2">
     <img src="/uploads/galeri3.jpg" class="rounded shadow-lg w-full h-48 object-cover" alt="Foto 3">
+    <img src="/uploads/galeri4.jpeg" class="rounded shadow-lg w-full h-48 object-cover" alt="Foto 4">
   </div>
 </section>
 

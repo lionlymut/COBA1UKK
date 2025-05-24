@@ -11,7 +11,7 @@
     <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <a href="{{ route('pkl.create') }}" 
            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow transition">
-            Input Data PKL
+            Daftar Pkl
         </a>
 
         <input type="text" 

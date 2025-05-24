@@ -130,7 +130,7 @@ public static function table(Table $table): Table
             Tables\Columns\TextColumn::make('gender')
                 ->label('Jenis Kelamin')
                 ->sortable()
-                ->formatStateUsing(fn ($state) => $state === 'L' ? 'Laki-laki' : 'Perempuan'),
+                ->formatStateUsing(fn ($state) => DB::select("SELECT getGenderCode(?) AS gender", [$state])[0]->gender),
 
 
             Tables\Columns\TextColumn::make('alamat')

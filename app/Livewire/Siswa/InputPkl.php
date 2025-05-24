@@ -5,6 +5,7 @@ namespace App\Livewire\Siswa;
 use Livewire\Component;
 use App\Models\Pkl;
 
+
 class InputPkl extends Component
 {
     public $search = '';
