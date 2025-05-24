@@ -25,7 +25,6 @@ class APIGuruController extends Controller
         $guru->nama = $request->nama;
         $guru->nip = $request->nip;
         $guru->gender = $request->gender;
-        $guru->keterangan = $request->keterangan;
         $guru->alamat = $request->alamat;
         $guru->kontak = $request->kontak;
         $guru->email = $request->email;
