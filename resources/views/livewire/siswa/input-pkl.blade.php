@@ -1,4 +1,4 @@
-<div class="max-w-4xl mx-auto mt-8 bg-white border border-gray-300 rounded-xl shadow-lg p-6">
+<div class="max-w-screen-xl mx-auto mt-8 bg-white border border-gray-300 rounded-xl shadow-lg p-6">
     <!-- Header salam dan info user -->
     <div class="mb-6 text-center">
         <h2 class="text-2xl font-semibold mb-2">Daftar Siswa PKL</h2>
@@ -15,19 +15,20 @@
         <input type="text" 
                wire:model.live.300ms="search" 
                placeholder="Search..." 
-               class="border border-gray-300 rounded px-4 py-2 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
+               class="border border-gray-300 rounded px-4 py-2 md:w-40 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
     </div>
 
     <!-- Container tabel dengan tinggi tetap dan scroll -->
     <div class="overflow-y-auto border border-gray-300 rounded pb-6" style="height: 23rem;">
-        <table class="w-full table-fixed border-collapse">
+        <table class="w-full border-collapse">
             <thead class="bg-gray-100 text-gray-700">
                 <tr>
-                    <th class="p-3 text-left font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Nama Siswa</th>
-                    <th class="p-3 text-left font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Industri</th>
-                    <th class="p-3 text-left font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Assesor</th>
-                    <th class="p-3 text-left font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Tanggal Mulai</th>
-                    <th class="p-3 text-left font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Tanggal Selesai</th>
+                    <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Nama Siswa</th>
+                    <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Industri</th>
+                    <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Assesor</th>
+                    <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Tanggal Mulai</th>
+                    <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Tanggal Selesai</th>
+                    <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Hari</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,10 +39,11 @@
                         <td class="p-3">{{ $pkl->guru->nama ?? '-' }}</td>
                         <td class="p-3">{{ \Carbon\Carbon::parse($pkl->tanggal_mulai)->format('d M Y') }}</td>
                         <td class="p-3">{{ \Carbon\Carbon::parse($pkl->tanggal_selesai)->format('d M Y') }}</td>
+                        <td class="p-3">{{ $pkl->durasi }} Hari</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="text-center p-6 text-gray-500">
+                        <td colspan="6" class="text-center p-6 text-gray-500">
                             Data PKL tidak ditemukan.
                         </td>
                     </tr>

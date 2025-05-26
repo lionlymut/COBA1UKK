@@ -20,14 +20,11 @@ class Siswa extends Authenticatable
     }
    
 
- // Accessor status_pkl
+ // Accessor status_pkl : tukang cek data
  public function getStatusPklAttribute()
  {
      return $this->pkl()->exists();
- }
-
-
-
+ } // kalau siswa ada data pkl maka akan di kembalikan ke true, jika tidak maka flase, ini terhubung di SiswaResources
 
 }
 

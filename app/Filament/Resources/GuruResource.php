@@ -15,6 +15,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+
 
 
 class GuruResource extends Resource
@@ -27,8 +29,8 @@ class GuruResource extends Resource
 
     public static function form(Form $form): Form
 {
-    return $form
-        ->schema([
+    return $form 
+        ->schema([ 
             Forms\Components\TextInput::make('nama')
                 ->required()
                 ->maxLength(255),
@@ -38,13 +40,10 @@ class GuruResource extends Resource
             ->label('NIP')
             ->required()
             ->maxLength(100)
-            ->unique(ignoreRecord: true, column: 'nip', table: 'gurus')
+            ->unique(ignoreRecord: true, column: 'nip', table: 'gurus') // ignore untuk memvalidasi data yang sudah ada
             ->validationMessages([
                 'unique' => 'NIP sudah dipakai.', // agar tidak eror saat nip dobel
             ]),
-
-
-
 
             Forms\Components\Select::make('gender')
                 ->options([

@@ -4,14 +4,12 @@ namespace App\Livewire\Siswa;
 
 use Livewire\Component;
 use App\Models\Industri;
-use Livewire\WithPagination;
 
 class DaftarIndustri extends Component
 {
-    use WithPagination;
+    
 
     public $search = '';
-    public $numpage = 10;
 
     public function updatingSearch()
     {
@@ -32,7 +30,7 @@ class DaftarIndustri extends Component
                       ->orWhere('email', 'like', $searchTerm);
                 });
             })
-            ->paginate($this->numpage);
+            ->get();
 
         return view('livewire.siswa.daftar-industri', compact('industris'))
             ->layout('layouts.app');
