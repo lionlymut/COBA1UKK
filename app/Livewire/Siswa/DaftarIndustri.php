@@ -11,11 +11,6 @@ class DaftarIndustri extends Component
 
     public $search = '';
 
-    public function updatingSearch()
-    {
-        $this->resetPage(); // Reset ke halaman 1 saat keyword berubah
-    }
-
     public function render()
     {
         $searchTerm = '%' . $this->search . '%';
