@@ -40,8 +40,8 @@
             </div>
 
             <div>
-                <label for="email" class="block text-sm font-medium">Website</label>
-                <input id="website" type="website" wire:model="website" class="w-full border p-2 rounded" />
+                <label for="website" class="block text-sm font-medium">Website</label>
+                <input id="website" type="url" wire:model="website" class="w-full border p-2 rounded" />
                 @error('website') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 

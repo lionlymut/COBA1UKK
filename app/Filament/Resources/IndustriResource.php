@@ -61,7 +61,7 @@ class IndustriResource extends Resource
 
             Forms\Components\TextInput::make('website')
                 ->label('Website')
-                ->text()
+                ->url()
                 ->required()
                 ->maxLength(255),
             ]);
