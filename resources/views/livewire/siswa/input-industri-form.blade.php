@@ -39,6 +39,12 @@
                 @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
 
+            <div>
+                <label for="email" class="block text-sm font-medium">Website</label>
+                <input id="website" type="website" wire:model="website" class="w-full border p-2 rounded" />
+                @error('website') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+            </div>
+
             <div class="text-center mt-4">
                 <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-400 transition duration-200">
                     Simpan Industri

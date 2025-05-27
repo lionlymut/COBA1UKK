@@ -24,7 +24,7 @@ class InputPklForm extends Component
         'industri_id' => 'required|exists:industris,id',
         'guru_id' => 'required|exists:gurus,id',
         'tanggal_mulai' => 'required|date',
-        'tanggal_selesai' => 'required|date|after_or_equal:tanggal_mulai',
+        'tanggal_selesai' => 'required|date|after:tanggal_mulai',
     ];
 
     public function mount()

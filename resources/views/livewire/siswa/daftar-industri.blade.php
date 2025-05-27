@@ -25,6 +25,7 @@
                         <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Alamat</th>
                         <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Kontak</th>
                         <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Email</th>
+                        <th class="p-3 text-center font-medium border-b border-gray-300 sticky top-0 bg-gray-100 z-10">Website</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +36,7 @@
                             <td class="p-3">{{ $industri->alamat }}</td>
                             <td class="p-3">{{ $industri->kontak }}</td>
                             <td class="p-3">{{ $industri->email }}</td>
+                            <td class="p-3">{{ $industri->website }}</td>
                         </tr>
                     @empty
                         <tr>

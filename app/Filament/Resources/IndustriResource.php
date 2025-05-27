@@ -57,6 +57,12 @@ class IndustriResource extends Resource
                 ->email()
                 ->required()
                 ->maxLength(255),
+
+            Forms\Components\TextInput::make('website')
+                ->label('Website')
+                ->text()
+                ->required()
+                ->maxLength(255),
             ]);
     }
 
@@ -87,6 +93,10 @@ class IndustriResource extends Resource
 
         Tables\Columns\TextColumn::make('email')
             ->label('Email')
+            ->searchable(),
+
+        Tables\Columns\TextColumn::make('website')
+            ->label('Website')
             ->searchable(),
 
 

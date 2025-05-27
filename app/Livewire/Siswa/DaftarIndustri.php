@@ -27,7 +27,8 @@ class DaftarIndustri extends Component
                       ->orWhere('bidang_usaha', 'like', $searchTerm)
                       ->orWhere('alamat', 'like', $searchTerm)
                       ->orWhere('kontak', 'like', $searchTerm)
-                      ->orWhere('email', 'like', $searchTerm);
+                      ->orWhere('email', 'like', $searchTerm)
+                      ->orWhere('website', 'like', $searchTerm);
                 });
             })
             ->get();
