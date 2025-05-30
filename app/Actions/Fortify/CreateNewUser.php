@@ -2,14 +2,14 @@
 
 namespace App\Actions\Fortify;
 
-//use statement
-use App\Models\User; //untuk pengecekkan dan penyimpana user
-use App\Models\Siswa; //untuk pengecekkan dan penyimpana user
-use App\Models\Guru; //untuk pengecekkan dan penyimpana user
+use App\Models\User;
+use App\Models\Siswa;
+use App\Models\Guru;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;  //untuk memvalidasi 
-use Illuminate\Validation\ValidationException; // menolak jika terjadi kesalahan validasi
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Spatie\Permission\Models\Role;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -30,7 +30,6 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        // Validasi apakah email terdaftar di tabel siswa atau guru
         $email = $input['email'];
         $terdaftarSebagaiSiswa = Siswa::where('email', $email)->exists();
         $terdaftarSebagaiGuru = Guru::where('email', $email)->exists();
@@ -41,12 +40,23 @@ class CreateNewUser implements CreatesNewUsers
             ]);
         }
 
-        // Buat user baru (role null dulu, nanti diatur oleh admin)
-        return User::create([
+        // Buat user baru
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role' => null,
         ]);
+
+        // Jika email terdaftar di siswa => assign role siswa
+        if ($terdaftarSebagaiSiswa) {
+            $user->assignRole('siswa');
+        }
+
+        // (Opsional) Kalau mau, bisa assign role guru kalau emailnya terdaftar di guru
+        // if ($terdaftarSebagaiGuru) {
+        //     $user->assignRole('guru');
+        // }
+
+        return $user;
     }
 }
