@@ -53,9 +53,9 @@ class CreateNewUser implements CreatesNewUsers
         }
 
         // (Opsional) Kalau mau, bisa assign role guru kalau emailnya terdaftar di guru
-        // if ($terdaftarSebagaiGuru) {
-        //     $user->assignRole('guru');
-        // }
+        if ($terdaftarSebagaiGuru) {
+             $user->assignRole('guru');
+         }
 
         return $user;
     }

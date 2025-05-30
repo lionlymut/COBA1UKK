@@ -24,7 +24,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
     'check_user_role',
-    'role:siswa',
+    'role:siswa|guru',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

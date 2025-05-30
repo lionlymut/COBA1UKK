@@ -16,7 +16,7 @@ class check_user_role
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && !Auth::user()->hasRole('siswa')) {
+        if (!Auth::user()->hasRole(['siswa', 'guru'])) {
             abort(403, 'USER DOES NOT HAVE RIGHT ROLE');
         }
 
